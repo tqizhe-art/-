@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI 对弈模块</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>AI 对弈模块</h1>
+      <p>支持人机对弈、难度选择、悔棋、重开与自定义局面。</p>
+    </header>
+
+    <section class="controls">
+      <div class="control-group">
+        <label>人机执子</label>
+        <div class="toggle">
+          <button type="button" data-player="red" class="active">红方</button>
+          <button type="button" data-player="black">黑方</button>
+        </div>
+      </div>
+      <div class="control-group">
+        <label for="difficulty">难度</label>
+        <select id="difficulty">
+          <option value="easy">新手</option>
+          <option value="normal" selected>进阶</option>
+          <option value="hard">高级</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <label>操作</label>
+        <div class="actions">
+          <button type="button" id="undo">悔棋</button>
+          <button type="button" id="restart">重新开始</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="board-wrapper">
+      <div id="board" class="board" aria-label="象棋棋盘"></div>
+      <aside class="sidebar">
+        <div class="status">
+          <h2>对局状态</h2>
+          <p id="turn-indicator">红方先行</p>
+          <p id="ai-indicator">AI 思考中…</p>
+        </div>
+        <div class="history">
+          <h2>走法记录</h2>
+          <ol id="move-list"></ol>
+        </div>
+      </aside>
+    </section>
+
+    <section class="fen-section">
+      <h2>自定义局面</h2>
+      <div class="fen-controls">
+        <textarea id="fen-input" rows="3" placeholder="输入 FEN，如：rheakaehr/9/1c5c1/p1p1p1p1p/9/9/P1P1P1P1P/1C5C1/9/RHEAKAEHR r"></textarea>
+        <div class="fen-actions">
+          <button type="button" id="apply-fen">应用 FEN</button>
+          <button type="button" id="enter-edit">进入编辑</button>
+          <button type="button" id="exit-edit" class="hidden">退出编辑</button>
+        </div>
+      </div>
+      <div class="editor hidden" id="editor">
+        <h3>简化编辑器</h3>
+        <p>选择棋子后点击棋盘进行放置，点击空棋子可清除。</p>
+        <div class="palette" id="palette"></div>
+      </div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
