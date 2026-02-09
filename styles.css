@@ -1,0 +1,245 @@
+:root {
+  color-scheme: light;
+  font-family: "Segoe UI", "PingFang SC", system-ui, sans-serif;
+  background: #f5f6fb;
+  color: #1f2937;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 24px;
+}
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+header {
+  background: white;
+  padding: 20px 24px;
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+}
+
+header h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.control-group {
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.control-group label {
+  font-weight: 600;
+  font-size: 14px;
+  color: #475569;
+}
+
+.toggle,
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.toggle button,
+.actions button,
+.fen-actions button,
+#apply-fen,
+#enter-edit,
+#exit-edit {
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.toggle button.active {
+  background: #ef4444;
+  color: white;
+  border-color: #dc2626;
+}
+
+.actions button {
+  flex: 1;
+}
+
+select,
+textarea {
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  padding: 8px;
+  font-size: 14px;
+  width: 100%;
+}
+
+.board-wrapper {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 20px;
+  align-items: start;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  gap: 2px;
+  background: #cbd5f5;
+  padding: 12px;
+  border-radius: 16px;
+  position: relative;
+  min-height: 520px;
+}
+
+.cell {
+  background: #fefce8;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  position: relative;
+  color: #1f2937;
+}
+
+.cell.red {
+  color: #dc2626;
+}
+
+.cell.black {
+  color: #1f2937;
+}
+
+.cell.selected {
+  outline: 3px solid #38bdf8;
+}
+
+.cell.legal::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(56, 189, 248, 0.6);
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.status,
+.history {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+}
+
+.status h2,
+.history h2,
+.fen-section h2 {
+  margin-top: 0;
+}
+
+#ai-indicator {
+  color: #64748b;
+  font-size: 14px;
+}
+
+.history ol {
+  margin: 0;
+  padding-left: 20px;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.fen-section {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.fen-controls {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  gap: 16px;
+  align-items: start;
+}
+
+.fen-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.editor {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.palette {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+  gap: 8px;
+}
+
+.palette button {
+  border: 1px solid #cbd5f5;
+  background: white;
+  border-radius: 8px;
+  padding: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.palette button.active {
+  background: #f97316;
+  color: white;
+  border-color: #ea580c;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 960px) {
+  .board-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .fen-controls {
+    grid-template-columns: 1fr;
+  }
+}
