@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>专业中国象棋</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="left-sidebar">
+      <div class="brand-block">
+        <span class="brand-logo">相</span>
+        <strong>Xiangqi.com</strong>
+      </div>
+      <nav class="main-nav" aria-label="主导航">
+        <button class="nav-item">对弈</button>
+        <button class="nav-item">题库</button>
+        <button class="nav-item">学习</button>
+        <button class="nav-item">社交</button>
+      </nav>
+      <button class="vip-btn">无广告体验</button>
+      <div class="sidebar-footer">tokman</div>
+    </aside>
+
+    <main class="app-stage">
+      <section class="left-info">
+        <article class="player-card top">
+          <div class="avatar">q</div>
+          <div class="name">qsmith</div>
+          <div class="rank">棋士 III (1786)</div>
+        </article>
+
+        <section class="clock-box" aria-label="对局计时">
+          <div class="clock-title">对局计时</div>
+          <div class="clock-main red"><strong id="timer-r">00:00</strong></div>
+          <div class="clock-main black"><strong id="timer-b">00:00</strong></div>
+        </section>
+
+        <article class="player-card bottom">
+          <div class="avatar red">t</div>
+          <div class="name">tokman</div>
+          <div class="rank">棋士 II (1589)</div>
+        </article>
+      </section>
+
+      <section class="board-stage">
+        <header class="board-topbar">
+          <h1>专业中国象棋</h1>
+          <div id="status" class="status" role="status" aria-live="polite">红方先行</div>
+        </header>
+
+        <div class="board-shell">
+          <div class="board-frame">
+            <div class="board" id="board" aria-label="中国象棋棋盘">
+              <svg id="grid" viewBox="0 0 100 100" preserveAspectRatio="none"></svg>
+              <div class="river-label">楚 河　　　　汉 界</div>
+              <div id="overlay"></div>
+            </div>
+          </div>
+        </div>
+
+        <section class="bottom-panel">
+          <div class="controls" aria-label="对局控制">
+            <button id="undoBtn">悔棋</button>
+            <button id="saveBtn">保存</button>
+            <button id="loadBtn">加载</button>
+            <button id="drawBtn">求和</button>
+            <button id="resignBtn">认输</button>
+            <button id="resetBtn">重开</button>
+          </div>
+          <div class="log-wrap">
+            <h2>对局记录</h2>
+            <div id="log" class="log" aria-live="polite"></div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <aside class="right-rail" aria-label="快捷工具">
+      <button class="tool-btn">👥</button>
+      <button class="tool-btn">💬</button>
+      <button class="tool-btn">⋮</button>
+      <button class="tool-btn">⛶</button>
+      <button class="tool-btn">🤝</button>
+      <button class="tool-btn">⚑</button>
+    </aside>
+  </div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
